@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Order from "../models/orders.model";
-import { StatusProps } from "../types";
+// import { StatusProps } from "../types";
 import mongoose from "mongoose";
 
 // GET: Obtiene todas las órdenes
