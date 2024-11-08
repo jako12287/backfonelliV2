@@ -25,8 +25,6 @@ pnpm-lock.yaml
 dist/
 build/
 
-# Models directory
-models/
 
 # Optional npm cache directory
 .npm/
