@@ -1,19 +1,16 @@
 import mongoose from "mongoose";
 
+const dbURI =
+  "mongodb+srv://foneli210:ud2kQLB4t1UW2ja0@cluster0.grdaq.mongodb.net/fonelli?retryWrites=true&w=majority";
 const connectDB = async () => {
-  try {
-    await mongoose.connect(
-      "mongodb+srv://foneli210:ud2kQLB4t1UW2ja0@cluster0.grdaq.mongodb.net/fonelli?retryWrites=true&w=majority",
-      {
-        //   useNewUrlParser: true,
-        //   useUnifiedTopology: true,
-      }
-    );
-    console.log("MongoDB connected successfully!");
-  } catch (error) {
-    console.error("MongoDB connection failed:", error);
-    process.exit(1);
-  }
+  mongoose
+    .connect(dbURI)
+    .then(() => {
+      console.log("MongoDB connected");
+    })
+    .catch((err) => {
+      console.error("MongoDB connection error:", err);
+    });
 };
 
 export default connectDB;
