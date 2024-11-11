@@ -18,7 +18,7 @@ app.get("/", (_, res: Response) => {
   res.send("Hello, TypeScript + Express!");
 });
 
-app.get("*", (req: Request, res: Response) => {
+app.get("*", (_, res: Response) => {
   res.send("SERVER 404!");
 });
 
