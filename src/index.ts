@@ -2,20 +2,11 @@ import express, { Response, Request } from "express";
 import dotenv from "dotenv";
 import connectDB from "./DB/database";
 import orderRoutes from "./routes/orders.route";
-import cors from "cors";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 connectDB();
-
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
 
 app.use(express.json());
 app.use("/api", orderRoutes);
