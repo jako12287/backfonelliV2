@@ -2,12 +2,14 @@ import express, { Response, Request } from "express";
 import dotenv from "dotenv";
 import connectDB from "./DB/database";
 import orderRoutes from "./routes/orders.route";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
-
 connectDB();
+
+app.use(cors());
 
 app.use(express.json());
 app.use("/api", orderRoutes);
