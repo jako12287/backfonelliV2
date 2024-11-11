@@ -1,20 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules"
-    ],
-    "types": ["node", "express"]
+    "target": "ES6",                           // Define el estándar de ECMAScript al que transpilar (ES6 es una buena opción para Node.js)
+    "module": "commonjs",                      // Usar CommonJS como sistema de módulos (requerido para Node.js)
+    "lib": ["esnext"],                         // Usar las últimas características de ECMAScript en las bibliotecas
+    "strict": true,                            // Activa el modo estricto para evitar errores sutiles
+    "esModuleInterop": true,                   // Permite usar `import` para módulos comunes como `require`
+    "skipLibCheck": true,                      // Omite la verificación de tipos en los archivos de las dependencias
+    "forceConsistentCasingInFileNames": true,  // Evita errores de mayúsculas/minúsculas en los nombres de archivo
+    "types": ["node"],                         // Incluir los tipos de Node.js (necesarios para `process`, etc.)
+    "outDir": "./dist",                        // El directorio donde se guardarán los archivos JS transpilados
+    "rootDir": "./src",                        // El directorio raíz donde están los archivos fuente TypeScript
+    "resolveJsonModule": true,                 // Permite importar archivos JSON como módulos
+    "moduleResolution": "node",                // Utiliza la resolución de módulos de Node.js (necesario para Express)
+    "skipDefaultLibCheck": true                // No verifica la librería estándar de TypeScript
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts"                              // Incluir todos los archivos .ts en la carpeta src
+  ],
+  "exclude": [
+    "node_modules"                             // Excluir la carpeta node_modules (no es necesario transpilarla)
   ]
 }
